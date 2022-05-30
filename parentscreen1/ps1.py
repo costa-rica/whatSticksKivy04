@@ -5,10 +5,11 @@ from kivy.uix.boxlayout import BoxLayout
 import requests
 import utils
 import json
+import os
 # from kivymd.app import MDApp
 
 
-Builder.load_file('ps1.kv')
+Builder.load_file(os.path.join(os.getcwd(),'ps1.kv'))
 class ParentScreen1(Screen):
   email = ObjectProperty(None)
   password = ObjectProperty(None)

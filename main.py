@@ -1,7 +1,7 @@
 from kivymd.app import MDApp
 from kivy.lang import Builder
-from ps1 import ParentScreen1
-from ps2 import ParentScreen2
+from parentscreen1.ps1 import ParentScreen1
+from parentscreen2.ps2 import ParentScreen2
 from kivy.uix.screenmanager import ScreenManager
 from kivy.lang import Builder
 from kivy.properties import ObjectProperty, ColorProperty, StringProperty

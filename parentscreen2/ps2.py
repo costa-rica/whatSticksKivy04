@@ -12,7 +12,7 @@ from utils import CanvasWidget
 import json
 import requests
 
-Builder.load_file('ps2.kv')
+Builder.load_file('parentscreen2/ps2.kv')
 
 class NavMenu(BoxLayout):...
 class Toolbar(MDToolbar):...
