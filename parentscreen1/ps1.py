@@ -8,8 +8,8 @@ import json
 import os
 # from kivymd.app import MDApp
 
-
 Builder.load_file(os.path.join(os.getcwd(),'ps1.kv'))
+
 class ParentScreen1(Screen):
   email = ObjectProperty(None)
   password = ObjectProperty(None)
@@ -19,11 +19,8 @@ class ParentScreen1(Screen):
     print('ParentScreen1 initialized')
     # app = App.get_running_app()
 
-
-
   def on_enter(self):
     print('ParentScreen1 on_enter')
-
 
   def show_password(self, checkbox, value):
     # print('self:::', self)
@@ -51,7 +48,6 @@ class ParentScreen1(Screen):
       user_data_dict = json.loads(response_user_data.text)
       print(json.loads(response_user_data.text))
       # print(type(json.loads(response_user_data.text)))
-
 
       # for i in user_data_dict:
       if user_data_dict['email']==self.email.text:
