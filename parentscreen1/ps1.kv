@@ -1,8 +1,9 @@
 <ParentScreen1>
   name:"parent_screen_1"
-  email:email
+  # email_field:email_field
   password:password
-  password_text:password_text
+  # password_text:password_text
+  password_flag_text:password_flag_text
 
   CanvasWidget:
   BoxLayout:
@@ -15,26 +16,27 @@
       height: 40
     MDLabel:
       text:"What Sticks"
-      font_size: 50
+      font_size: "60dp"
       pos_hint: {"x":0.2}
       size_hint_y: None
       height: 140
+    # EmailBox:
     MDTextField:
-      id: email
+      # id: email_field
       hint_text: "Email"
-      text: "nickapeed@yahoo.com"
+      text: root.email_text
       icon_right: "email"
       icon_right_color:.2,.2,.2,1#works
       current_hint_text_color:.2,.2,.2,1#works label changes color
       text_color: 0,0,0,1#works text color
       size_hint_x: None
       width: 600
-      font_size: 30
+      font_size: "40dp"
       pos_hint: {"center_x":0.5}
     MDTextField:
       id: password
       hint_text: "Password"
-      text: "test"
+      text: root.password_text
       icon_right: "password"
       icon_right_color:.2,.2,.2,1#works
       current_hint_text_color:.2,.2,.2,1#works label changes color
@@ -44,7 +46,7 @@
       line_color_normal:0,0,0,1
       size_hint_x: None
       width: 600
-      font_size: 40
+      font_size: "40dp"
       pos_hint: {"center_x":0.5}
       password: True
 
@@ -59,7 +61,7 @@
         pos_hint: {"center_x": .24}
         on_active: root.show_password(*args)
       MDLabel:
-        id: password_text
+        id: password_flag_text
         text: "Show Password"
         # post_hint: {"center_x":.4}
         # size: "48dp", "48dp"
@@ -91,6 +93,20 @@
         Label:
           size_hint_x: .6
           height: 10
+
+# <EmailBox@MDTextField>
+#   # id: email
+#   hint_text: "Email"
+#   # text: "nickapeed@yahoo.com"
+#   icon_right: "email"
+#   icon_right_color:.2,.2,.2,1#works
+#   current_hint_text_color:.2,.2,.2,1#works label changes color
+#   text_color: 0,0,0,1#works text color
+#   size_hint_x: None
+#   width: 600
+#   font_size: 30
+#   pos_hint: {"center_x":0.5}
+
 
 <FailBox>
   size:(400,300)
