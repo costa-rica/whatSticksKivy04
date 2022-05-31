@@ -5,18 +5,20 @@ from parentscreen2.ps2 import ParentScreen2
 from kivy.uix.screenmanager import ScreenManager
 from kivy.lang import Builder
 from kivy.properties import ObjectProperty, ColorProperty, StringProperty
+from kivy.metrics import dp
+from kivy.core.window import Window
+import os;import platform
 
 
+print('platform.system::',platform.system())
+#Darwin
+print('os.name:::',os.name)
+#posix
 
-
-# class MainScreenManager(ScreenManager):
-#   # parent_screen_1=ObjectProperty(None)
-#   def __init__(self,**kwargs):
-#     super().__init__(**kwargs)
-#     ps1=ParentScreen1()
-#     ps2=ParentScreen2()
-#     self.add_widget(ps1)
-#     self.add_widget(ps2)
+if platform in ['ios','android']:
+    print('kivy.utils.platform:::', platform)
+else:
+    Window.size = (640, 1136)#iphone demensions
 
 class MainApp(MDApp):
     def build(self):
