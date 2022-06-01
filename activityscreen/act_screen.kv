@@ -1,0 +1,162 @@
+<ActivityScreen>
+  act_name_box:act_name_box
+  act_note_box:act_note_box#bottom
+  box_layout_date:box_layout_date
+  box_layout_time:box_layout_time
+  BoxLayout:#ActivityScreen
+    orientation:"vertical"
+    BoxLayout:#TopPart of ActivityScreen
+      size_hint:1,.4#x,y
+      BoxLayout:#TopPart Left
+        orientation:"vertical"
+        size_hint:.7,1
+        AnchorLayout:
+          anchor_x:"left"
+          anchor_y:"top"
+          BoxLayoutScreenName:#Add Activity Screen Title Here
+            padding:(10,30,0,0)
+        BoxLayoutActName:#Add Activity InputBox Here
+          id: act_name_box
+          padding:(10,0,0,30)
+      BoxLayout:#Column 2 on Add Activity Top
+        orientation:"vertical"
+        size_hint:.3,1
+        BoxLayoutDate:
+          id:box_layout_date
+
+        BoxLayoutTime:
+          id:box_layout_time
+        Label:
+
+    BoxLayoutAddActNote:#Add Activity Note
+      id:act_note_box
+
+
+<BoxLayoutScreenName@BoxLayout>
+  # email_label:email_label
+  orientation:"vertical"
+  # padding_y:"40dp"
+  padding:(15,0,0,0)
+  Label:
+    size_hint:None,None
+    text: 'Add Activity Window'
+    font_size: "40dp"
+    size: self.texture_size
+
+  Label:
+    # id:email_label
+    size_hint:None,None
+    text:"nickapeed@yahoo.com"
+    font_size:"24dp"
+    size: self.texture_size
+    color: .2,.2,.2,1
+    # padding:(15,0,0,0)
+  Label:
+
+<BoxLayoutDate@BoxLayout>:
+  orientation:"vertical"
+  date_label:date_label
+  date_input:date_input
+  Label:
+    id:date_label
+    text:"Date"
+    size_hint:None,None
+    size: self.texture_size
+    font_size:"30dp"
+    color:.3,.3,.3,1
+  TextInputAddName:
+    id:date_input
+    rows:1
+    size_hint:1,None
+    font_size:"24dp"
+    height:str(self.font_size * 2)+"dp"
+    border: (0,0,0,0)
+    padding: (2,0,0,0)
+    halign:"left"
+
+
+<BoxLayoutTime@BoxLayout>:
+  orientation:"vertical"
+  time_label:time_label
+  time_input:time_input
+  Label:
+    id:time_label
+    text:"Time"
+    size_hint:None,None
+    size: self.texture_size
+    font_size:"30dp"
+    color:.3,.3,.3,1
+  TextInputAddName:
+    id:time_input
+    rows:1
+    size_hint:1,None
+    font_size:"24dp"
+    height:str(self.font_size * 2)+"dp"
+    border: (0,0,0,0)
+    padding: (2,0,0,0)
+    halign:"left"
+
+
+<BoxLayoutActName@BoxLayout>:#Add Activity Name
+  add_act_name_label:add_act_name_label
+  add_act_name:add_act_name
+  orientation:"vertical"
+  # padding:"20dp"
+  Label:
+  Label:
+    id:add_act_name_label
+    text:"Add Activity Name"
+    size_hint:None,None
+    size: self.texture_size
+    font_size:"30dp"
+    color:.3,.3,.3,1
+  TextInputAddName:
+    id:add_act_name
+    rows:1
+    size_hint:1,None
+    font_size:"24dp"
+    height:str(self.font_size * 2)+"dp"
+
+<BoxLayoutActNote@BoxLayout>:#ActivityNote
+  textInputMultiline: txt_input_multiline
+  canvas.before:
+    Color:
+      rgb: [127/255,160/255,189/255]#wshKivy Blue
+    Rectangle:
+      pos: self.pos
+      size: self.size
+  orientation: "vertical"
+  GridLayout:
+    cols: 1
+    canvas.before:
+      Rectangle:
+        pos: self.pos
+        size: self.size
+    TextInputDynamicActNote:
+      id: txt_input_multiline
+      # text: "Bienvenue au Cercle International De L'ARC  \n conversataions en Français"
+      font_size: "24dp"
+      size_hint_y: None
+      height: (len(txt_input_multiline._lines)+1) * txt_input_multiline.line_height
+
+<BoxLayoutAddActNote@BoxLayout>:
+  add_act_note_label:add_act_note_label
+  add_act_note:add_act_note
+  orientation:"vertical"
+  size_hint:1,.6
+  padding: 10
+  BoxLayout:
+    orientation:"vertical"
+    BoxLayout:
+      size_hint: 1,.1
+      Label:
+        id:add_act_note_label
+        text:"Activity Note"
+        size_hint: .3,1
+        font_size: "30dp"
+        color:.3,.3,.3,1
+      Label:
+        size_hint:.8,1
+    BoxLayoutActNote:
+      id:add_act_note
+      size_hint: 1,.9
