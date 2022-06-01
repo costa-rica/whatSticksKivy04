@@ -8,7 +8,7 @@ import json
 import os
 from kivy.core.window import Window
 
-Builder.load_file(os.path.join(os.getcwd(),'parentscreen1','ps1_new.kv'))
+Builder.load_file(os.path.join(os.getcwd(),'parentscreen1','ps1.kv'))
 
 
 class ParentScreen1(Screen):
