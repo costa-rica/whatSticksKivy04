@@ -32,7 +32,8 @@
       id:act_note_box
 
 
-<BoxLayoutScreenName@BoxLayout>
+
+<BoxLayoutScreenName@BoxLayout>:#TopLeftAddAct
   # email_label:email_label
   orientation:"vertical"
   # padding_y:"40dp"
@@ -53,7 +54,7 @@
     # padding:(15,0,0,0)
   Label:
 
-<BoxLayoutDate@BoxLayout>:
+<BoxLayoutDate@BoxLayout>:#TopRightAddAct
   orientation:"vertical"
   date_label:date_label
   date_input:date_input
@@ -74,8 +75,7 @@
     padding: (2,0,0,0)
     halign:"left"
 
-
-<BoxLayoutTime@BoxLayout>:
+<BoxLayoutTime@BoxLayout>:#TopRightAddAct
   orientation:"vertical"
   time_label:time_label
   time_input:time_input
@@ -95,7 +95,6 @@
     border: (0,0,0,0)
     padding: (2,0,0,0)
     halign:"left"
-
 
 <BoxLayoutActName@BoxLayout>:#Add Activity Name
   add_act_name_label:add_act_name_label
@@ -160,3 +159,16 @@
     BoxLayoutActNote:
       id:add_act_note
       size_hint: 1,.9
+    Button:
+      text:"hello world"
+      on_press:
+        print('root:',root)
+        print('root.parent:',root.parent)
+        print('root.parent.parent:',root.parent.parent)
+
+        print('root.size:',root.size)
+        print('root.window_width:', root.parent.parent.window_width)
+        print('root.window_height:', root.parent.parent.window_height)
+        print('act_screen.size:', root.parent.parent.size)
+        print('ps2:',root.parent.parent.parent.parent.parent)
+        print('ps2:',root.parent.parent.parent.parent.parent.size)

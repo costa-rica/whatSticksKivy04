@@ -26,10 +26,10 @@ class ParentScreen1(Screen):
     print('self.window_height::',type(self.window_height),self.window_height)
 
     #Load email and password
-    # from config import Config
-    # config_stuff = Config()
-    # self.email_text = Config().email
-    # self.password_text = Config().password
+    from config import Config
+    config_stuff = Config()
+    self.email_text = Config().email
+    self.password_text = Config().password
 
   def on_enter(self):
     print('ParentScreen1 on_enter')
@@ -80,6 +80,9 @@ class ParentScreen1(Screen):
         self.screens_dict['parent_screen_2'].email=self.email_field.text
         self.screens_dict['parent_screen_2'].username=self.username
         self.screens_dict['parent_screen_2'].user_timezone=self.user_timezone
+
+        self.screens_dict['parent_screen_2'].window_width=self.window_width
+        self.screens_dict['parent_screen_2'].window_height=self.window_height
 
     else:
       print('failbox')

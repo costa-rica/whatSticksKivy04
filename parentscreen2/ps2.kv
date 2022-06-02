@@ -11,8 +11,9 @@
     title: "What-Sticks-Health"
     left_action_items: [["menu", lambda x: nav_drawer.set_state("open")]]
     md_bg_color: .3,.3,.3,1
+    # font_size:root.width * .06
+    # font_size:100
   MDNavigationLayout:
-
     # x:toolbar.height-100
     ScreenManager:
       id: child_sm
@@ -28,8 +29,6 @@
       size_hint:.4,None
       height:root.height - root.toolbar.size[1]
       NavMenu:
-
-
 
 
 <TableScreen>
@@ -49,11 +48,15 @@
   # size_hint: .1, .9
   # CanvasWidget:
   OneLineListItem:
+    # text:"[size=50]Add Activity[/size]"
     text:"Add Activity"
+    # font_size:root.width * .06
+    # font_size:100
     on_press:
       root.parent.parent.parent.child_sm.current="act_screen"
     # CanvasWidget:
   OneLineListItem:
+    # font_size:root.width * .06
     text:"View Logged Activties"
     on_press:
       root.parent.parent.parent.child_sm.current="table_screen"
