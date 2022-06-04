@@ -8,6 +8,7 @@ from kivy.properties import ObjectProperty, ColorProperty, StringProperty
 from kivy.metrics import dp
 from kivy.core.window import Window
 import os;import platform
+from screenmodel import CentralData
 
 
 print('platform.system::',platform.system())
@@ -16,12 +17,16 @@ print('os.name:::',os.name)
 #posix
 
 if platform in ['ios','android']:
-    print('kivy.utils.platform:::', platform)
+  print('kivy.utils.platform:::', platform)
 else:
-    Window.size = (640, 1136)#iphone demensions
+  Window.size = (640, 1136)#iphone demensions
 
 class MainApp(MDApp):
-    def build(self):
-        return Builder.load_file('main_design.kv')
+  def __init__(self,**kwargs):
+    super().__init__(**kwargs)
+    self.central_data = CentralData()
+
+  def build(self):
+    return Builder.load_file('main_design.kv')
 
 MainApp().run()

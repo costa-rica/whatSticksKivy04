@@ -7,6 +7,7 @@ import utils
 import json
 import os
 from kivy.core.window import Window
+from kivymd.app import MDApp
 
 Builder.load_file(os.path.join(os.getcwd(),'parentscreen1','ps1.kv'))
 
@@ -83,6 +84,10 @@ class ParentScreen1(Screen):
 
         self.screens_dict['parent_screen_2'].window_width=self.window_width
         self.screens_dict['parent_screen_2'].window_height=self.window_height
+
+        print('****central_data**')
+        MDApp.get_running_app().central_data.window_width=self.window_width
+        MDApp.get_running_app().central_data.window_height=self.window_height
 
     else:
       print('failbox')

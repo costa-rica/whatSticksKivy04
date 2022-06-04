@@ -37,8 +37,8 @@ class ParentScreen2(Screen):
     self.act_screen_id.date_time_now=current_time_util(self.user_timezone)
     self.act_screen_id.box_layout_date.date_input.text=self.act_screen_id.date_time_now[0]
     self.act_screen_id.box_layout_time.time_input.text=self.act_screen_id.date_time_now[1]
-    self.act_screen_id.window_width = self.window_width
-    self.act_screen_id.window_height = self.window_height
+    # self.act_screen_id.window_width = self.window_width
+    # self.act_screen_id.window_height = self.window_height
 
 
 class TableScreen(Screen):

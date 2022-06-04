@@ -3,33 +3,37 @@
   act_note_box:act_note_box#bottom
   box_layout_date:box_layout_date
   box_layout_time:box_layout_time
-  BoxLayout:#ActivityScreen
-    orientation:"vertical"
-    BoxLayout:#TopPart of ActivityScreen
-      size_hint:1,.4#x,y
-      BoxLayout:#TopPart Left
-        orientation:"vertical"
-        size_hint:.7,1
-        AnchorLayout:
-          anchor_x:"left"
-          anchor_y:"top"
-          BoxLayoutScreenName:#Add Activity Screen Title Here
-            padding:(10,30,0,0)
-        BoxLayoutActName:#Add Activity InputBox Here
-          id: act_name_box
-          padding:(10,0,0,30)
-      BoxLayout:#Column 2 on Add Activity Top
-        orientation:"vertical"
-        size_hint:.3,1
-        BoxLayoutDate:
-          id:box_layout_date
 
-        BoxLayoutTime:
-          id:box_layout_time
-        Label:
+  ScrollView:
+    BoxLayout:#ActivityScreen
+      orientation:"vertical"
+      size_hint: 1,None
+      height: app.central_data.window_height
+      BoxLayout:#TopPart of ActivityScreen
+        size_hint:1,.4#x,y
+        BoxLayout:#TopPart Left
+          orientation:"vertical"
+          size_hint:.7,1
+          AnchorLayout:
+            anchor_x:"left"
+            anchor_y:"top"
+            BoxLayoutScreenName:#Add Activity Screen Title Here
+              padding:(10,30,0,0)
+          BoxLayoutActName:#Add Activity InputBox Here
+            id: act_name_box
+            padding:(10,0,0,30)
+        BoxLayout:#Column 2 on Add Activity Top
+          orientation:"vertical"
+          size_hint:.3,1
+          BoxLayoutDate:
+            id:box_layout_date
 
-    BoxLayoutAddActNote:#Add Activity Note
-      id:act_note_box
+          BoxLayoutTime:
+            id:box_layout_time
+          Label:
+
+      BoxLayoutAddActNote:#Add Activity Note
+        id:act_note_box
 
 
 
@@ -166,9 +170,10 @@
         print('root.parent:',root.parent)
         print('root.parent.parent:',root.parent.parent)
 
-        print('root.size:',root.size)
-        print('root.window_width:', root.parent.parent.window_width)
-        print('root.window_height:', root.parent.parent.window_height)
-        print('act_screen.size:', root.parent.parent.size)
-        print('ps2:',root.parent.parent.parent.parent.parent)
-        print('ps2:',root.parent.parent.parent.parent.parent.size)
+        # print('root.size:',root.size)
+        # print('root.window_width:', root.parent.parent.window_width)
+        # print('root.window_height:', root.parent.parent.window_height)
+        # print('act_screen.size:', root.parent.parent.size)
+        # print('ps2:',root.parent.parent.parent.parent.parent)
+        # print('ps2:',root.parent.parent.parent.parent.parent.size)
+        print('app',app.central_data.window_height)
