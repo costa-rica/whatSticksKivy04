@@ -13,6 +13,7 @@ class ActivityScreen(Screen):
   email=StringProperty('')
   username=StringProperty('')
   user_timezone=StringProperty('')
+  box_act_screen=ObjectProperty()
   add_act_note=ObjectProperty(None)
   add_act_note_label=ObjectProperty(None)
   email_label=ObjectProperty(None)
@@ -29,6 +30,16 @@ class ActivityScreen(Screen):
     print("Act Screen on_enter")
     # self.date_time_obj=datetime.datetime.now()
 
+
+
+class BoxLayoutActScreen(BoxLayout):
+  act_name_box=ObjectProperty()
+  box_layout_date=ObjectProperty()
+  box_layout_time=ObjectProperty()
+  act_note_box=ObjectProperty()
+
+  def __init__(self,**kwargs):
+    super().__init__(**kwargs)
 
 class TextInputDynamicActNote(TextInput):
   def on_focus(instance, instance_twice, value):#I'm not sure why i'm passing instance twice

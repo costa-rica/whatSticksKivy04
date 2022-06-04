@@ -1,9 +1,13 @@
 <ParentScreen2>
   name:"parent_screen_2"
+  toolbar:toolbar
+  md_nav_layout:md_nav_layout
   child_sm:child_sm
   act_screen_id:act_screen_id
-  toolbar:toolbar
+  canvas_widget:canvas_widget
+
   CanvasWidget:
+    id:canvas_widget
   MDToolbar:
     id: toolbar
     pos_hint: {"top": 1}
@@ -14,7 +18,8 @@
     # font_size:root.width * .06
     # font_size:100
   MDNavigationLayout:
-    # x:toolbar.height-100
+    id:md_nav_layout
+
     ScreenManager:
       id: child_sm
       ActivityScreen:

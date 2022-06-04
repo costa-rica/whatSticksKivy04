@@ -22,9 +22,12 @@ class ParentScreen2(Screen):
   email=StringProperty('')
   username=StringProperty('')
   user_timezone=StringProperty('')
+  canvas_widget=ObjectProperty()
+  md_nav_layout=ObjectProperty()
+  toolbar=ObjectProperty(None)
   child_sm=ObjectProperty(None)
   act_screen_id=ObjectProperty(None)
-  toolbar=ObjectProperty(None)
+
 
   def __init__(self,**kwargs):
     super(ParentScreen2,self).__init__(**kwargs)
@@ -35,10 +38,24 @@ class ParentScreen2(Screen):
     print('self.act_screen_id::', self.act_screen_id)
     self.act_screen_id.user_timezone=self.user_timezone
     self.act_screen_id.date_time_now=current_time_util(self.user_timezone)
-    self.act_screen_id.box_layout_date.date_input.text=self.act_screen_id.date_time_now[0]
-    self.act_screen_id.box_layout_time.time_input.text=self.act_screen_id.date_time_now[1]
+    # self.act_screen_id.box_layout_date.date_input.text=self.act_screen_id.date_time_now[0]
+    # self.act_screen_id.box_layout_time.time_input.text=self.act_screen_id.date_time_now[1]
     self.act_screen_id.window_width = self.window_width
     self.act_screen_id.window_height = self.window_height
+    print('ps2 height:::', self.height)
+    print('toolbar height::',self.toolbar.height)
+    print('activityscreen height::', self.act_screen_id.height)
+    print('self.children', self.children)
+    self.act_screen_height = self.act_screen_id.height
+    print('self.md_nav_layout',self.md_nav_layout.height)
+    print('self.canvas_widt height::', self.canvas_widget.height)
+    print('self.height',self.height)
+    # self.toolbar.height = 80
+    # self.act_screen_id.height = self.height - self.toolbar.height
+    print('****toolbar and act screen heights changed*****')
+    print('toolbar height::',self.toolbar.height)
+    print('activityscreen height::', self.act_screen_id.height)
+
 
 
 class TableScreen(Screen):

@@ -1,36 +1,76 @@
 <ActivityScreen>
+  box_act_screen:box_act_screen
+  box_act_extra:box_act_extra
+  # act_name_box:act_name_box
+  # act_note_box:act_note_box#bottom
+  # box_layout_date:box_layout_date
+  # box_layout_time:box_layout_time
+  ScrollView:
+    BoxLayout:
+      orientation:"vertical"
+      size_hint: 1,None
+      height:self.minimum_height
+      BoxLayoutActScreen:
+        id:box_act_screen
+      BoxLayoutExtra:
+        id:box_act_extra
+
+<BoxLayoutActScreen>:#ActivityScreen
   act_name_box:act_name_box
-  act_note_box:act_note_box#bottom
   box_layout_date:box_layout_date
   box_layout_time:box_layout_time
-  BoxLayout:#ActivityScreen
-    orientation:"vertical"
-    BoxLayout:#TopPart of ActivityScreen
-      size_hint:1,.4#x,y
-      BoxLayout:#TopPart Left
-        orientation:"vertical"
-        size_hint:.7,1
-        AnchorLayout:
-          anchor_x:"left"
-          anchor_y:"top"
-          BoxLayoutScreenName:#Add Activity Screen Title Here
-            padding:(10,30,0,0)
-        BoxLayoutActName:#Add Activity InputBox Here
-          id: act_name_box
-          padding:(10,0,0,30)
-      BoxLayout:#Column 2 on Add Activity Top
-        orientation:"vertical"
-        size_hint:.3,1
-        BoxLayoutDate:
-          id:box_layout_date
+  act_note_box:act_note_box
 
-        BoxLayoutTime:
-          id:box_layout_time
-        Label:
+  orientation:"vertical"
+  size_hint:1,None
+  # height: root.parent.parent.parent.height - 200
+  height: 842
+  #above changes height to 842
+  #set this BoxLayout height to ps2 height - toolbar, everything in this will be good
+  BoxLayout:#TopPart of ActivityScreen
+    size_hint:1,.4#x,y
+    BoxLayout:#TopPart Left
+      orientation:"vertical"
+      size_hint:.7,1
+      AnchorLayout:
+        anchor_x:"left"
+        anchor_y:"top"
+        BoxLayoutScreenName:#Add Activity Screen Title Here
+          padding:(10,30,0,0)
+      BoxLayoutActName:#Add Activity InputBox Here
+        id: act_name_box
+        padding:(10,0,0,30)
+    BoxLayout:#Column 2 on Add Activity Top
+      orientation:"vertical"
+      size_hint:.3,1
+      BoxLayoutDate:
+        id:box_layout_date
 
-    BoxLayoutAddActNote:#Add Activity Note
-      id:act_note_box
+      BoxLayoutTime:
+        id:box_layout_time
+      Label:
 
+  BoxLayoutAddActNote:#Add Activity Note
+    id:act_note_box
+
+  Button:
+    size_hint:1,None
+    height: 100
+    text:"box_act_screen"
+    on_press:
+      print('box_act_screen.height:::', root.height)
+      print('find ps2:',root.parent.children)
+
+
+<BoxLayoutExtra@BoxLayout>:#Extra BoxLayout at bottom of BoxLayout ActScreen
+  size_hint:1,None
+  height: 300
+    # canvas.before:
+    #   Color:
+    #     rgb: [127/255,160/255,100/255]#wshKivy Blue
+    #   Rectangle:
+    #     pos: self.pos
+    #     size: self.size
 
 
 <BoxLayoutScreenName@BoxLayout>:#TopLeftAddAct
@@ -159,16 +199,16 @@
     BoxLayoutActNote:
       id:add_act_note
       size_hint: 1,.9
-    Button:
-      text:"hello world"
-      on_press:
-        print('root:',root)
-        print('root.parent:',root.parent)
-        print('root.parent.parent:',root.parent.parent)
-
-        print('root.size:',root.size)
-        print('root.window_width:', root.parent.parent.window_width)
-        print('root.window_height:', root.parent.parent.window_height)
-        print('act_screen.size:', root.parent.parent.size)
-        print('ps2:',root.parent.parent.parent.parent.parent)
-        print('ps2:',root.parent.parent.parent.parent.parent.size)
+    # Button:
+    #   text:"hello world"
+    #   on_press:
+    #     print('root:',root)
+    #     print('root.parent:',root.parent)
+    #     print('root.parent.parent:',root.parent.parent)
+    #     #
+    #     # print('root.size:',root.size)
+    #     # print('root.window_width:', root.parent.parent.window_width)
+    #     # print('root.window_height:', root.parent.parent.window_height)
+    #     # print('act_screen.size:', root.parent.parent.size)
+    #     print('ps2:',root.parent.parent.parent.parent.parent)
+    #     print('ps2:',root.parent.parent.parent.parent.parent.size)
