@@ -1,10 +1,6 @@
 <ActivityScreen>
   box_act_screen:box_act_screen
   box_act_extra:box_act_extra
-  # act_name_box:act_name_box
-  # act_note_box:act_note_box#bottom
-  # box_layout_date:box_layout_date
-  # box_layout_time:box_layout_time
   ScrollView:
     BoxLayout:
       orientation:"vertical"
@@ -16,9 +12,9 @@
         id:box_act_extra
 
 <BoxLayoutActScreen>:#ActivityScreen
+  act_screen_screen_name:act_screen_screen_name
   act_name_box:act_name_box
-  box_layout_date:box_layout_date
-  box_layout_time:box_layout_time
+  box_date_and_time:box_date_and_time
   act_note_box:act_note_box
 
   orientation:"vertical"
@@ -36,105 +32,50 @@
         anchor_x:"left"
         anchor_y:"top"
         BoxLayoutScreenName:#Add Activity Screen Title Here
-          padding:(10,30,0,0)
+          id:act_screen_screen_name
       BoxLayoutActName:#Add Activity InputBox Here
         id: act_name_box
-        padding:(10,0,0,30)
-    BoxLayout:#Column 2 on Add Activity Top
-      orientation:"vertical"
-      size_hint:.3,1
-      BoxLayoutDate:
-        id:box_layout_date
-
-      BoxLayoutTime:
-        id:box_layout_time
-      Label:
+        # padding:(10,0,0,30)
+    # BoxLayoutDateAndTime:#Column 2 on Add Activity Top
+    #   id:box_date_and_time
 
   BoxLayoutAddActNote:#Add Activity Note
     id:act_note_box
-
-  Button:
-    size_hint:1,None
-    height: 100
-    text:"box_act_screen"
-    on_press:
-      print('box_act_screen.height:::', root.height)
-      print('find ps2:',root.parent.children)
+  BoxLayoutDateAndTime:#Column 2 on Add Activity Top
+    id:box_date_and_time
+  # Button:
+  #   size_hint:1,None
+  #   height: 100
+  #   text:"box_act_screen"
+  #   on_press:
+  #     print('box_act_screen.height:::', root.height)
+  #     print('find ps2:',root.parent.children)
 
 
 <BoxLayoutExtra@BoxLayout>:#Extra BoxLayout at bottom of BoxLayout ActScreen
   size_hint:1,None
-  height: 300
-    # canvas.before:
-    #   Color:
-    #     rgb: [127/255,160/255,100/255]#wshKivy Blue
-    #   Rectangle:
-    #     pos: self.pos
-    #     size: self.size
+  height: 1
 
-
-<BoxLayoutScreenName@BoxLayout>:#TopLeftAddAct
-  # email_label:email_label
+<BoxLayoutScreenName>:#TopLeftAddAct
+  add_act_name_label:add_act_name_label
+  email_label:email_label
   orientation:"vertical"
   # padding_y:"40dp"
-  padding:(15,0,0,0)
+  padding:(0,0,0,0)#left,top,right,bottom
   Label:
+    id:add_act_name_label
     size_hint:None,None
     text: 'Add Activity Window'
-    font_size: "40dp"
     size: self.texture_size
 
   Label:
-    # id:email_label
+    id:email_label
     size_hint:None,None
-    text:"nickapeed@yahoo.com"
     font_size:"24dp"
     size: self.texture_size
     color: .2,.2,.2,1
-    # padding:(15,0,0,0)
+    # padding:(25,0,0,0)
   Label:
-
-<BoxLayoutDate@BoxLayout>:#TopRightAddAct
-  orientation:"vertical"
-  date_label:date_label
-  date_input:date_input
-  Label:
-    id:date_label
-    text:"Date"
-    size_hint:None,None
-    size: self.texture_size
-    font_size:"30dp"
-    color:.3,.3,.3,1
-  TextInputAddName:
-    id:date_input
-    rows:1
-    size_hint:1,None
-    font_size:"24dp"
-    height:str(self.font_size * 2)+"dp"
-    border: (0,0,0,0)
-    padding: (2,0,0,0)
-    halign:"left"
-
-<BoxLayoutTime@BoxLayout>:#TopRightAddAct
-  orientation:"vertical"
-  time_label:time_label
-  time_input:time_input
-  Label:
-    id:time_label
-    text:"Time"
-    size_hint:None,None
-    size: self.texture_size
-    font_size:"30dp"
-    color:.3,.3,.3,1
-  TextInputAddName:
-    id:time_input
-    rows:1
-    size_hint:1,None
-    font_size:"24dp"
-    height:str(self.font_size * 2)+"dp"
-    border: (0,0,0,0)
-    padding: (2,0,0,0)
-    halign:"left"
 
 <BoxLayoutActName@BoxLayout>:#Add Activity Name
   add_act_name_label:add_act_name_label
@@ -155,6 +96,7 @@
     size_hint:1,None
     font_size:"24dp"
     height:str(self.font_size * 2)+"dp"
+
 
 <BoxLayoutActNote@BoxLayout>:#ActivityNote
   textInputMultiline: txt_input_multiline

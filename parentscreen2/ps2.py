@@ -33,29 +33,48 @@ class ParentScreen2(Screen):
     super(ParentScreen2,self).__init__(**kwargs)
     print('ParentScreen2 __init__')
 
+
   def on_enter(self):
     print('parentScreen2 on_enter')
-    print('self.act_screen_id::', self.act_screen_id)
+    #Things to pass to act screen
+    #user_timezone
     self.act_screen_id.user_timezone=self.user_timezone
+    #username
+    self.act_screen_id.username=self.username
+    #email
+    self.act_screen_id.email=self.email
+
+    #set height of toolbar
+    self.toolbar.height = self.height * .07
+
+    #create varaible for act_screen_height
+    self.act_screen_height = self.height - self.toolbar.height
+    #create varaible for width
+    print('padding width:::', self.width *.01)
+    print('Padding height:::', self.act_screen_height *.01)
+
+    #set height of act_screen
+    self.act_screen_id.box_act_screen.height = self.act_screen_height
+
+    #set extra boxlayout height at half of act screen height
+    self.act_screen_id.box_act_extra.height = self.act_screen_height *.25
+
+    #set name boxlayout stuff
+    self.act_screen_id.box_act_screen.act_screen_screen_name.padding=(
+      self.width*.01,self.act_screen_height*.01,0,0)
+    self.act_screen_id.box_act_screen.act_screen_screen_name.add_act_name_label.font_size= self.width*.05
+    self.act_screen_id.box_act_screen.act_screen_screen_name.email_label.font_size= self.width*.03
+    self.act_screen_id.box_act_screen.act_screen_screen_name.email_label.text="  "+self.email
+
+    #act screen add act name label
+    self.act_screen_id.box_act_screen.act_name_box.padding=(
+      self.width*.01,self.act_screen_height*.5,0,0)
+
+    #date and time
+    print('box_date_andtime::',self.act_screen_id.box_act_screen.box_date_and_time)
     self.act_screen_id.date_time_now=current_time_util(self.user_timezone)
     # self.act_screen_id.box_layout_date.date_input.text=self.act_screen_id.date_time_now[0]
-    # self.act_screen_id.box_layout_time.time_input.text=self.act_screen_id.date_time_now[1]
-    self.act_screen_id.window_width = self.window_width
-    self.act_screen_id.window_height = self.window_height
-    print('ps2 height:::', self.height)
-    print('toolbar height::',self.toolbar.height)
-    print('activityscreen height::', self.act_screen_id.height)
-    print('self.children', self.children)
-    self.act_screen_height = self.act_screen_id.height
-    print('self.md_nav_layout',self.md_nav_layout.height)
-    print('self.canvas_widt height::', self.canvas_widget.height)
-    print('self.height',self.height)
-    # self.toolbar.height = 80
-    # self.act_screen_id.height = self.height - self.toolbar.height
-    print('****toolbar and act screen heights changed*****')
-    print('toolbar height::',self.toolbar.height)
-    print('activityscreen height::', self.act_screen_id.height)
-
+    self.act_screen_id.box_act_screen.box_date_and_time.box_layout_date.date_input.text = self.act_screen_id.date_time_now[0]
 
 
 class TableScreen(Screen):

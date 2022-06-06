@@ -1,0 +1,55 @@
+
+
+<BoxLayoutDateAndTime>:#Column 2 on Add Activity Top
+  box_layout_date:box_layout_date
+  box_layout_time:box_layout_time
+  # orientation:"vertical"
+  # size_hint:.3,1
+  spaceing:window.width *.01
+  BoxLayoutDate:
+    id:box_layout_date
+  BoxLayoutTime:
+    id:box_layout_time
+  Label:
+
+<BoxLayoutDate@BoxLayout>:#TopRightAddAct
+  orientation:"vertical"
+  date_label:date_label
+  date_input:date_input
+  Label:
+    id:date_label
+    text:"Date"
+    size_hint:None,None
+    size: self.texture_size
+    font_size:"30dp"
+    color:.3,.3,.3,1
+  TextInputAddName:
+    id:date_input
+    rows:1
+    size_hint:1,None
+    font_size:"24dp"
+    height:str(self.font_size * 2)+"dp"
+    # border: (0,0,0,0)
+    padding: (2,0,0,0)
+    halign:"left"
+
+<BoxLayoutTime@BoxLayout>:#TopRightAddAct
+  orientation:"vertical"
+  time_label:time_label
+  time_input:time_input
+  Label:
+    id:time_label
+    text:"Time"
+    size_hint:None,None
+    size: self.texture_size
+    font_size:"30dp"
+    color:.3,.3,.3,1
+  TextInputAddName:
+    id:time_input
+    rows:1
+    size_hint:1,None
+    font_size:"24dp"
+    height:str(self.font_size * 2)+"dp"
+    # border: (0,0,0,0)
+    padding: (2,0,0,0)
+    halign:"left"
