@@ -13,6 +13,8 @@ from utils import CanvasWidget, current_time_util
 # import json
 # import requests
 import activityscreen.act_screen
+# from myscreen.my_screen import MyScreen
+from kivymd.app import MDApp
 Builder.load_file('parentscreen2/ps2.kv')
 
 class NavMenu(BoxLayout):...
@@ -36,45 +38,17 @@ class ParentScreen2(Screen):
 
   def on_enter(self):
     print('parentScreen2 on_enter')
-    #Things to pass to act screen
-    #user_timezone
-    self.act_screen_id.user_timezone=self.user_timezone
-    #username
-    self.act_screen_id.username=self.username
-    #email
-    self.act_screen_id.email=self.email
+    myscreen = MDApp.get_running_app().myscreen
 
+    #Things needed to be set by ParentScreen2
     #set height of toolbar
     self.toolbar.height = self.height * .07
 
-    #create varaible for act_screen_height
-    self.act_screen_height = self.height - self.toolbar.height
-    #create varaible for width
-    print('padding width:::', self.width *.01)
-    print('Padding height:::', self.act_screen_height *.01)
+    myscreen.toolbar_height = self.toolbar.height
+    myscreen.act_screen_height = self.height - self.toolbar.height
 
-    #set height of act_screen
-    self.act_screen_id.box_act_screen.height = self.act_screen_height
-
-    #set extra boxlayout height at half of act screen height
-    self.act_screen_id.box_act_extra.height = self.act_screen_height *.25
-
-    #set name boxlayout stuff
-    self.act_screen_id.box_act_screen.act_screen_screen_name.padding=(
-      self.width*.01,self.act_screen_height*.01,0,0)
-    self.act_screen_id.box_act_screen.act_screen_screen_name.add_act_name_label.font_size= self.width*.05
-    self.act_screen_id.box_act_screen.act_screen_screen_name.email_label.font_size= self.width*.03
-    self.act_screen_id.box_act_screen.act_screen_screen_name.email_label.text="  "+self.email
-
-    #act screen add act name label
-    self.act_screen_id.box_act_screen.act_name_box.padding=(
-      self.width*.01,self.act_screen_height*.5,0,0)
-
-    #date and time
-    print('box_date_andtime::',self.act_screen_id.box_act_screen.box_date_and_time)
-    self.act_screen_id.date_time_now=current_time_util(self.user_timezone)
-    # self.act_screen_id.box_layout_date.date_input.text=self.act_screen_id.date_time_now[0]
-    self.act_screen_id.box_act_screen.box_date_and_time.box_layout_date.date_input.text = self.act_screen_id.date_time_now[0]
+    print('***act_screen_height set, now configuring act_screen in my_screen***')
+    myscreen.send_to_act_screen(self.act_screen_id)
 
 
 class TableScreen(Screen):

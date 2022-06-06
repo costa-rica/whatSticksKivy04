@@ -33,28 +33,16 @@
         anchor_y:"top"
         BoxLayoutScreenName:#Add Activity Screen Title Here
           id:act_screen_screen_name
+
       BoxLayoutActName:#Add Activity InputBox Here
         id: act_name_box
-        # padding:(10,0,0,30)
-    # BoxLayoutDateAndTime:#Column 2 on Add Activity Top
-    #   id:box_date_and_time
 
   BoxLayoutAddActNote:#Add Activity Note
     id:act_note_box
+
   BoxLayoutDateAndTime:#Column 2 on Add Activity Top
     id:box_date_and_time
-  # Button:
-  #   size_hint:1,None
-  #   height: 100
-  #   text:"box_act_screen"
-  #   on_press:
-  #     print('box_act_screen.height:::', root.height)
-  #     print('find ps2:',root.parent.children)
 
-
-<BoxLayoutExtra@BoxLayout>:#Extra BoxLayout at bottom of BoxLayout ActScreen
-  size_hint:1,None
-  height: 1
 
 <BoxLayoutScreenName>:#TopLeftAddAct
   add_act_name_label:add_act_name_label
@@ -71,7 +59,7 @@
   Label:
     id:email_label
     size_hint:None,None
-    font_size:"24dp"
+    font_size:"1dp"
     size: self.texture_size
     color: .2,.2,.2,1
     # padding:(25,0,0,0)
@@ -81,76 +69,63 @@
   add_act_name_label:add_act_name_label
   add_act_name:add_act_name
   orientation:"vertical"
-  # padding:"20dp"
-  Label:
   Label:
     id:add_act_name_label
     text:"Add Activity Name"
     size_hint:None,None
     size: self.texture_size
-    font_size:"30dp"
+    font_size:"1dp"
     color:.3,.3,.3,1
   TextInputAddName:
     id:add_act_name
     rows:1
     size_hint:1,None
-    font_size:"24dp"
+    font_size:"1dp"
     height:str(self.font_size * 2)+"dp"
 
-
-<BoxLayoutActNote@BoxLayout>:#ActivityNote
-  textInputMultiline: txt_input_multiline
-  canvas.before:
-    Color:
-      rgb: [127/255,160/255,189/255]#wshKivy Blue
-    Rectangle:
-      pos: self.pos
-      size: self.size
-  orientation: "vertical"
-  GridLayout:
-    cols: 1
-    canvas.before:
-      Rectangle:
-        pos: self.pos
-        size: self.size
-    TextInputDynamicActNote:
-      id: txt_input_multiline
-      # text: "Bienvenue au Cercle International De L'ARC  \n conversataions en Français"
-      font_size: "24dp"
-      size_hint_y: None
-      height: (len(txt_input_multiline._lines)+1) * txt_input_multiline.line_height
 
 <BoxLayoutAddActNote@BoxLayout>:
   add_act_note_label:add_act_note_label
   add_act_note:add_act_note
   orientation:"vertical"
   size_hint:1,.6
-  padding: 10
-  BoxLayout:
-    orientation:"vertical"
-    BoxLayout:
-      size_hint: 1,.1
-      Label:
-        id:add_act_note_label
-        text:"Activity Note"
-        size_hint: .3,1
-        font_size: "30dp"
-        color:.3,.3,.3,1
-      Label:
-        size_hint:.8,1
-    BoxLayoutActNote:
-      id:add_act_note
-      size_hint: 1,.9
-    # Button:
-    #   text:"hello world"
-    #   on_press:
-    #     print('root:',root)
-    #     print('root.parent:',root.parent)
-    #     print('root.parent.parent:',root.parent.parent)
-    #     #
-    #     # print('root.size:',root.size)
-    #     # print('root.window_width:', root.parent.parent.window_width)
-    #     # print('root.window_height:', root.parent.parent.window_height)
-    #     # print('act_screen.size:', root.parent.parent.size)
-    #     print('ps2:',root.parent.parent.parent.parent.parent)
-    #     print('ps2:',root.parent.parent.parent.parent.parent.size)
+  Label:
+    id:add_act_note_label
+    text:"Activity Note"
+    size_hint:None,None
+    size: self.texture_size
+    font_size: "1dp"
+    color:.3,.3,.3,1
+  BoxLayoutActNote:
+    id:add_act_note
+
+<BoxLayoutActNote@BoxLayout>:#ActivityNote
+  textInputMultiline: txt_input_multiline
+  canvas.before:
+    Color:
+      rgb: [127/255,160/255,100/255]#wshKivy Blue
+    Rectangle:
+      pos: self.pos
+      # size: (self.size[0],100)
+      size: self.size
+  orientation: "vertical"
+  GridLayout:
+    cols: 1
+    canvas.before:
+      Color:
+        rgb: [127/255,160/255,1/255]#wshKivy Blue
+      Rectangle:
+        pos: self.pos
+        size: self.size
+    TextInputDynamicActNote:
+      id: txt_input_multiline
+      # text: "Bienvenue au Cercle International De L'ARC  \n conversataions en Français"
+      font_size: "1dp"
+      size_hint_y: None
+      height: (len(txt_input_multiline._lines)+1) * txt_input_multiline.line_height
+
+
+
+<BoxLayoutExtra@BoxLayout>:#Extra BoxLayout at bottom of BoxLayout ActScreen
+  size_hint:1,None
+  height: 1

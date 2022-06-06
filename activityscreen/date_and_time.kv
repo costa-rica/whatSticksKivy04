@@ -1,16 +1,32 @@
 
 
 <BoxLayoutDateAndTime>:#Column 2 on Add Activity Top
+  anchor_date_time:anchor_date_time
   box_layout_date:box_layout_date
   box_layout_time:box_layout_time
   # orientation:"vertical"
   # size_hint:.3,1
   # spaceing:window.width *.01
-  BoxLayoutDate:
-    id:box_layout_date
-  BoxLayoutTime:
-    id:box_layout_time
-  Label:
+  canvas.before:
+    Color:
+      rgb: [200/255,160/255,1/255]#wshKivy Blue
+    Rectangle:
+      pos: self.pos
+      size: self.size
+  AnchorLayout:
+    id:anchor_date_time
+    anchor_x:"left"
+    anchor_y:"top"
+    BoxLayout:
+      size_hint:1,None
+      # size: self.texture_size
+      height:self.minimum_height
+
+      BoxLayoutDate:
+        id:box_layout_date
+      BoxLayoutTime:
+        id:box_layout_time
+      Label:
 
 <BoxLayoutDate@BoxLayout>:#TopRightAddAct
   orientation:"vertical"

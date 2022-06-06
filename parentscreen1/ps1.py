@@ -7,6 +7,7 @@ import utils
 import json
 import os
 from kivy.core.window import Window
+from kivymd.app import MDApp
 
 Builder.load_file(os.path.join(os.getcwd(),'parentscreen1','ps1.kv'))
 
@@ -63,26 +64,26 @@ class ParentScreen1(Screen):
       print(json.loads(response_user_data.text))
       # print(type(json.loads(response_user_data.text)))
 
-      # for i in user_data_dict:
       if user_data_dict['email']==self.email_field.text:
 
         print('self.parent.screens:::', self.parent.screens)
         self.parent.current="parent_screen_2"
-        self.screens_dict={i.name: i for i in self.parent.screens}
-        print('self.screens_dict.keys::')
-        print(self.screens_dict.keys())
-        self.id=user_data_dict['id']
-        self.username=user_data_dict['username']
-        self.user_timezone=user_data_dict['user_timezone']
+        print('MDApp.get_running_app.myscreen:::', MDApp.get_running_app().myscreen)
+        myscreen=MDApp.get_running_app().myscreen
+        myscreen.user_timezone=user_data_dict['user_timezone']
 
-        self.screens_dict['parent_screen_2'].login_token=login_token
-        self.screens_dict['parent_screen_2'].id=self.id
-        self.screens_dict['parent_screen_2'].email=self.email_field.text
-        self.screens_dict['parent_screen_2'].username=self.username
-        self.screens_dict['parent_screen_2'].user_timezone=self.user_timezone
+        # ps2=[i for i in self.parent.children if i.name == 'parent_screen_2' ][0]
+        myscreen.login_token=login_token
+        myscreen.id=user_data_dict['id']
+        myscreen.email=self.email_field.text
+        myscreen.username=user_data_dict['username']
+        # ps2.user_timezone=user_data_dict['user_timezone']
+        myscreen.window_width=self.window_width
+        myscreen.window_height=self.window_height
 
-        self.screens_dict['parent_screen_2'].window_width=self.window_width
-        self.screens_dict['parent_screen_2'].window_height=self.window_height
+        #tyirng MyScreen
+        # MDApp.get_running_app.myscreen.user_timezone=self.user_timezone
+
 
     else:
       print('failbox')

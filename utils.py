@@ -3,6 +3,7 @@ from kivy.graphics import Rectangle, Color
 from kivy.uix.button import Button
 import datetime
 from pytz import timezone
+from kivymd.app import MDApp
 
 class CanvasWidget(Widget):
     def __init__(self,**kwargs):
@@ -24,8 +25,9 @@ class CanvasWidget(Widget):
 #         self.parent.title.text=''
 #         self.parent.note.text=''
 #         self.parent.remove_widget(self)
-def current_time_util(user_timezone):
+def current_time_util():
     date_time_obj=datetime.datetime.now()
+    user_timezone=MDApp.get_running_app().myscreen.user_timezone
     date_time_obj_tz_aware=timezone(user_timezone).localize(date_time_obj)
     hour_temp=date_time_obj_tz_aware.strftime("%H")
     hour=hour_temp if hour_temp[0]!='0' else hour_temp[1]
